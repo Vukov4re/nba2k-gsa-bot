@@ -1,35 +1,35 @@
-# NBA 2K GSA Discord Bot
+# NBA 2K GSA Discord Bot (v1.1)
 
-Dieser Bot erstellt automatisch eine fertige Discord-Serverstruktur für die NBA 2K GSA Community.
+Auto-Setup **Serverstruktur** + **Auto-Rollen mit Buttons** (Plattform, Land, Build-Position) und **read-only** für Regeln/Ankündigungen.
 
-## Vorbereitung
+## Setup (lokal)
 1) Node.js 18+ installieren: https://nodejs.org
-2) Im Discord Developer Portal einen Bot erstellen und Token/App-ID notieren.
-
-## Lokaler Start
-1) Im Projektordner:
+2) `.env` mit echten Werten anlegen (siehe `.env.example`)
+3) Abhängigkeiten installieren:
    ```bash
    npm install
    ```
-2) Lege eine `.env` mit deinen echten Werten an (siehe `.env.example`):
-   ```env
-   DISCORD_TOKEN=DEIN_DISCORD_BOT_TOKEN
-   CLIENT_ID=DEINE_DISCORD_APP_ID
-   GUILD_ID=DEINE_TESTSERVER_ID
-   ```
-3) Slash-Command registrieren:
+4) Slash-Commands registrieren (einmalig):
    ```bash
    npm run deploy
    ```
-4) Bot starten:
+5) Starten:
    ```bash
    npm start
    ```
-5) In Discord `/setup2k` ausführen.
 
-## Railway (24/7 Hosting)
-- Repo zu GitHub hochladen (ohne `.env`).
-- Auf Railway neues Projekt → „Deploy from GitHub repo“.
-- Variables setzen: `DISCORD_TOKEN`, `CLIENT_ID`, `GUILD_ID`.
-- Start Command: `node index.js`.
-- Deploy → Bot ist online.
+## Befehle
+- `/setup2k` – erstellt Kategorien/Kanäle + sperrt Regeln/Ankündigungen
+- `/setuproles` – erstellt Kanal **#🧩│rolle-zuweisen** mit Buttons:
+  - Plattform: PS5, Xbox, PC
+  - Land: Deutschland, Schweiz, Österreich
+  - Position: PG, SG, SF, PF, C
+
+## Railway (24/7)
+- Repo verbinden → Variables setzen: `DISCORD_TOKEN`, `CLIENT_ID`, `GUILD_ID`
+- Start Command: `node index.js`
+- Deploy → Bot online
+
+## Hinweise
+- Bot benötigt **Manage Channels** und **Manage Roles** auf dem Server.
+- `.env` niemals committen.

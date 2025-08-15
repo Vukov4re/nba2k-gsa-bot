@@ -6,6 +6,10 @@ const commands = [
     .setName('setup2k')
     .setDescription('Erstellt die NBA 2K GSA Serverstruktur')
     .toJSON(),
+  new SlashCommandBuilder()
+    .setName('setuproles')
+    .setDescription('Erstellt Auto-Rollen-Nachrichten (Plattform, Land, Build-Position)')
+    .toJSON(),
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.DISCORD_TOKEN);
